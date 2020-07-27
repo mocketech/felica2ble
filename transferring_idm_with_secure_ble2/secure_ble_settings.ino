@@ -57,8 +57,10 @@ class MySecurity : public BLESecurityCallbacks {  // BLE security with pass key
       // ペアリング完了
       Serial.println("auth success");
       ESP_LOGI(LOG_TAG, "Starting BLE work!");
+      notify_data("auth success");
     }else{
       // ペアリング失敗
+      notify_data("auth failed");
       deviceConnected = false;
       Serial.println("auth failed");
       ESP_LOGI(LOG_TAG, "Starting BLE failed!");
